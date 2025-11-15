@@ -1,603 +1,349 @@
-// Data Produk
-const produk = [
+// script.js (module) - versi diperbaiki: link detail pakai p.id (bukan index)
+import { produkList } from "./data-produk.js";
 
-  //gelang
-  { 
-    nama: "Gelang Cristal Meow", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/gelang_manik/gelang1-putih.jpg", 
-    varian: [
-      "images/gelang_manik/gelang1-putih.jpg", 
-      "images/gelang_manik/gelang1-ungu.jpg",
-      "images/gelang_manik/gelang1-pink.jpg",
-    ],
-    kategori: "gelang", 
-    tag: "produk-baru" 
-  },
-  { 
-    nama: "Gelang Kupu Bunga", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/gelang_manik/gelang2-pink.jpg", 
-    varian: [
-      "images/gelang_manik/gelang2-pink.jpg",
-      "images/gelang_manik/gelang2-ungu.jpg",
-      "images/gelang_manik/gelang2-biru.jpg",
-    ],
-    kategori: "gelang", 
-    tag: "best-seller"  
-  },
-  { 
-    nama: "Gelang Kupu Cristal Bunga", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/gelang_manik/gelang3-pink.jpg", 
-    varian: [
-      "images/gelang_manik/gelang3-pink.jpg",
-      "images/gelang_manik/gelang3-ungu.jpg",
-    ],
-    kategori: "gelang", 
-    tag: "best-seller"  
-  },
-  { 
-    nama: "Gelang Bintang Cristal", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/gelang_manik/gelang4.jpg", 
-    varian: [
-      "images/gelang_manik/gelang4.jpg",
-    ],
-    kategori: "gelang", 
-    tag: "best-seller"  
-  },
-  { 
-    nama: "Gelang Clover Cristal", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/gelang_manik/gelang5.jpg", 
-    varian: [
-      "images/gelang_manik/gelang5.jpg",
-    ],
-    kategori: "gelang", 
-    tag: "best-seller"  
-  },
-  { 
-    nama: "Gelang Manik Cristal", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/gelang_manik/gelang6-pink.jpg", 
-    varian: [
-      "images/gelang_manik/gelang6-pink.jpg",
-      "images/gelang_manik/gelang6-ungu.jpg",
-      "images/gelang_manik/gelang6-ungu.jpg",
-    ],
-    kategori: "gelang", 
-    tag: "" 
-  },
-  { 
-    nama: "Gelang Surga Kupu-Kupu", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/gelang_manik/gelang7-pink.jpg", 
-    varian: [
-      "images/gelang_manik/gelang7-pink.jpg",
-      "images/gelang_manik/gelang7-ungu.jpg",
-      "images/gelang_manik/gelang7-ungu.jpg",
-    ],
-    kategori: "gelang", 
-    tag: ""  
-  },
-  { 
-    nama: "Gelang Manik Cristal Simple", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/gelang_manik/gelang8-putih.jpg", 
-    varian: [
-      "images/gelang_manik/gelang8-putih.jpg",
-      "images/gelang_manik/gelang8-biru.jpg",
-    ],
-    kategori: "gelang", 
-    tag: ""  
-  },
-  { 
-    nama: "Gelang Bulan Sabit Cristal", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/gelang_manik/gelang9.jpg", 
-    varian: [
-      "images/gelang_manik/gelang9.jpg",
-    ],
-    kategori: "gelang", 
-    tag: ""  
-  },
-  { 
-    nama: "Gelang Kupu-Kupu", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/gelang_manik/gelang10-pink.jpg", 
-    varian: [
-      "images/gelang_manik/gelang10-pink.jpg",
-      "images/gelang_manik/gelang10-ungu.jpg",
-      "images/gelang_manik/gelang10-ungu.jpg",
-    ],
-    kategori: "gelang", 
-    tag: ""  
-  },
-  { 
-    nama: "Gelang Cristal Ceko Pink", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/gelang_manik/gelang11-sedang.jpg", 
-    varian: [
-      "images/gelang_manik/gelang11-besar.jpg",
-      "images/gelang_manik/gelang11-sedang.jpg",
-      "images/gelang_manik/gelang11-kecil.jpg",
-    ],
-    kategori: "gelang", 
-    tag: "best-seller"  
-  },
+document.addEventListener('DOMContentLoaded', () => {
+  // tambahkan indeks internal (tidak mengganti id string asli)
+  const produk = produkList.map((item, index) => ({ ...item, __idx: index }));
 
-  //gelang tali
-  { 
-    nama: "Gelang Couple Spiderman ", 
-    harga: "Rp 8.000", 
-    fotoUtama: "images/gelang_tali/gelangtali1.jpg", 
-    varian: [
-      "images/gelang_tali/gelangtali1.jpg",
-    ],
-    kategori: "gelang", 
-    tag: "best-seller"  
-  },
-  { 
-    nama: "Gelang Couple Spiderman ", 
-    harga: "Rp 4.000", 
-    fotoUtama: "images/gelang_tali/gelangtali1.jpg", 
-    varian: [
-      "images/gelang_tali/gelangtali1_putih.jpg",
-      "images/gelang_tali/gelangtali1_hitam.jpg",
-    ],
-    kategori: "gelang", 
-    tag: "best-seller"  
-  },
-  { 
-    nama: "Gelang Couple Dino ", 
-    harga: "Rp 8.000", 
-    fotoUtama: "images/gelang_tali/gelangtali2.jpg", 
-    varian: [
-      "images/gelang_tali/gelangtali2.jpg",
-    ],
-    kategori: "gelang", 
-    tag: "best-seller"  
-  },
-  { 
-    nama: "Gelang Polos", 
-    harga: "Rp 3.000", 
-    fotoUtama: "images/gelang_tali/gelangtali3.jpg", 
-    varian: [
-      "images/gelang_tali/gelangtali3.jpg",
-    ],
-    kategori: "gelang", 
-    tag: "best-seller"  
-  },
-  { 
-    nama: "Gelang Tali", 
-    harga: "Rp 4.000", 
-    fotoUtama: "images/gelang_tali/gelangtali5.jpg", 
-    varian: [
-      "images/gelang_tali/gelangtali5.jpg",
-      "images/gelang_tali/gelangtali4.jpg",
-    ],
-    kategori: "gelang", 
-    tag: "best-seller"  
-  },
-  { 
-    nama: "Gelang Couple Heart", 
-    harga: "Rp 8.000", 
-    fotoUtama: "images/gelang_tali/gelangtali6.jpg", 
-    varian: [
-      "images/gelang_tali/gelangtali3.jpg",
-    ],
-    kategori: "gelang", 
-    tag: "best-seller"  
-  },
-  { 
-    nama: "Gelang Tali Inisial A-Z", 
-    harga: "Rp 4.000", 
-    fotoUtama: "images/gelang_tali/gelangtali7.jpg", 
-    varian: [
-      "images/gelang_tali/gelangtali7.jpg",
-    ],
-    kategori: "gelang", 
-    tag: "best-seller"  
-  },
-  { 
-    nama: "Gelang Tali Tridatu Polos", 
-    harga: "Rp 3.000", 
-    fotoUtama: "images/gelang_tali/gelang_ali9.jpg", 
-    varian: [
-      "images/gelang_tali/gelangtali9.jpg",
-      "images/gelang_tali/gelangtali12.jpg",
-      "images/gelang_tali/gelangtali11.jpg",
-      "images/gelang_tali/gelangtali10.jpg",
-      "images/gelang_tali/gelangtali8.jpg",
-    ],
-    kategori: "gelang", 
-    tag: "best-seller"  
-  },
-  { 
-    nama: "Gelang Tali Tridatu Batu Cina", 
-    harga: "Rp 8.000", 
-    fotoUtama: "images/gelang_tali/gelangtali9.jpg", 
-    varian: [
-      "images/gelang_tali/gelangtali13_hijau.jpg",
-      "images/gelang_tali/gelangtali13_oren.jpg",
-      "images/gelang_tali/gelangtali13_merah.jpg",
-    ],
-    kategori: "gelang", 
-    tag: "best-seller"  
-  },
-  { 
-    nama: "Gelang Tali Tridatu 3 Batu Cina", 
-    harga: "Rp 15.000", 
-    fotoUtama: "images/gelang_tali/gelangtali14.jpg", 
-    varian: [
-      "images/gelang_tali/gelangtali14.jpg",
-    ],
-    kategori: "gelang", 
-    tag: "best-seller"  
-  },
-  //gelang anak
-  { 
-    nama: "Gelang Anak Pinky Tali", 
-    harga: "Rp 8.000", 
-    fotoUtama: "images/gelang_anak/gelanganak1.jpg", 
-    varian: [
-      "images/gelang_anak/gelanganak1.jpg",
-    ],
-    kategori: "gelang anak", 
-    tag: "best-seller"  
-  },
-  { 
-    nama: "Gelang Bayi Bunga", 
-    harga: "Rp 5.000", 
-    fotoUtama: "images/gelang_anak/gelanganak2.jpg", 
-    varian: [
-      "images/gelang_anak/gelanganak2.jpg",
-    ],
-    kategori: "gelang anak", 
-    tag: "best-seller"  
-  },
-  { 
-    nama: "Gelang Bayi", 
-    harga: "Rp 5.000", 
-    fotoUtama: "images/gelang_anak/gelanganak3.jpg", 
-    varian: [
-      "images/gelang_anak/gelanganak3.jpg",
-    ],
-    kategori: "gelang anak", 
-    tag: "produk-baru"  
-  },
-  { 
-    nama: "Gelang Bayi Bunga Tali", 
-    harga: "Rp 7.000", 
-    fotoUtama: "images/gelang_anak/gelanganak4.jpg", 
-    varian: [
-      "images/gelang_anak/gelanganak4.jpg",
-    ],
-    kategori: "gelang anak", 
-    tag: "best-seller"  
-  },
-  { 
-    nama: "Gelang Anak Pita", 
-    harga: "Rp 7.000", 
-    fotoUtama: "images/gelang_anak/gelanganak5.jpg", 
-    varian: [
-      "images/gelang_anak/gelanganak5.jpg",
-    ],
-    kategori: "gelang anak", 
-    tag: "produk-baru"  
-  },
+  // debugging
+  console.log('Produk dimuat:', produk.length);
 
-  //gantungan kunci
-  { 
-    nama: "Cats Bag Charms", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/products/gantungankunci1_oren.jpg", 
-    varian: [
-      "images/gantungan_kunci/gantungankunci1_oren.jpg",
-      "images/gantungan_kunci/gantungankunci1_kuning.jpg",
-      "images/gantungan_kunci/gantungankunci1_biru.jpg",
-      "images/gantungan_kunci/gantungankunci1_putih.jpg",
-    ], 
-    kategori: "gantungan", 
-    tag: " " 
-  },
-  { 
-    nama: "Black n White Love Bag Charm", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/products/gantungankunci2.jpg", 
-    varian: ["images/gantungan_kunci/gantungankunci2.jpg",
+  // container yang benar
+  const mainContainer = document.getElementById('produk-container');
+  if (!mainContainer) {
+    console.error('Elemen #produk-container tidak ditemukan di HTML.');
+    return;
+  }
 
-    ],
-    kategori: "gantungan", 
-    tag: " " 
-  },
-  { 
-    nama: "Gantungan Lucu", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/products/gantungankunci3_pink.jpg", 
-    varian: [
-      "images/gantungan_kunci/gantungankunci3_pink.jpg",
-      "images/gantungan_kunci/gantungankunci3_putih.jpg",
-      "images/gantungan_kunci/gantungankunci3_biru.jpg",
-    ], 
-    kategori: "gantungan", 
-    tag: "best-seller" 
-  },
-  { 
-    nama: "Gantungan Kamboja", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/products/gantungankamboja_pink.jpg", 
-    varian: [
-      "images/gantungan_kunci/gantungankamboja_coklat.jpg",
-      "images/gantungan_kunci/gantungankamboja_grey.jpg",
-      "images/gantungan_kunci/gantungankamboja_kuning.jpg",
-      "images/gantungan_kunci/gantungankamboja_pink.jpg",
-      "images/gantungan_kunci/gantungankamboja_ungu.jpg",
-    ], 
-    kategori: "gantungan", 
-    tag: "best-seller" 
-  },
-  { 
-    nama: "Gantungan Flowers", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/products/gantungankunci5_pinkfanta.jpg", 
-    varian: [
-      "images/gantungan_kunci/gantungankunci5_pinkfanta.jpg",
-      "images/gantungan_kunci/gantungankunci5_softpink.jpg",
-      "images/gantungan_kunci/gantungankunci5_ungu.jpg",
-      "images/gantungan_kunci/gantungankunci5_kuning.jpg",
-      "images/gantungan_kunci/gantungankunci5_biru.jpg",
-    ], 
-    kategori: "gantungan", 
-    tag: "best-seller" 
-  },
-  { 
-    nama: "Gantungan Love Pom", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/products/gantungankunci6_pink.jpg", 
-    varian: [
-      "images/gantungan_kunci/gantungankunci6_pink.jpg",
-      "images/gantungan_kunci/gantungankunci6_hitam.jpg",
-      "images/gantungan_kunci/gantungankunci6_ungu.jpg",
-    ], 
-    kategori: "gantungan", 
-    tag: "best-seller" 
-  },
-  { 
-    nama: "Gantungan Inisal A-Z", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/products/gantungankunci6_inisal.jpg", 
-    varian: [
-      "images/gantungan_kunci/gantungankunci6_inisal.jpg",
-    ], 
-    kategori: "gantungan", 
-    tag: "best-seller" 
-  },
-  { 
-    nama: "Gantungan Love Pom", 
-    harga: "Rp 10.000", 
-    fotoUtama: "images/products/gantungankunci6_pink.jpg", 
-    varian: [
-      "images/gantungan_kunci/gantungankunci6_pink.jpg",
-      "images/gantungan_kunci/gantungankunci6_hitam.jpg",
-      "images/gantungan_kunci/gantungankunci6_ungu.jpg",
-    ], 
-    kategori: "gantungan", 
-    tag: "best-seller" 
-  },
+  // ========================
+  // Helpers
+  // ========================
+  const escapeHtml = (s = '') => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  function imageOnErrorAttr() {
+    return `onerror="this.onerror=null;this.src='https://via.placeholder.com/420x420?text=No+Image';"`;
+  }
+  function createTagLabels(tagString) {
+    if (!tagString) return '';
+    return String(tagString).trim().split(/\s+/).filter(Boolean).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join(' ');
+  }
 
-  //gantungan macrame
-{ 
-    nama: "Gantungan Tas Macrame Anggrek", 
-    harga: "Rp 18.000", 
-    fotoUtama: "images/gantungan_macrame/gantunganmacrame1_pink.jpg", 
-    varian: [
-      "images/gantungan_macrame/gantungamacrame1_pink.jpg",
-      "images/gantungan_macrame/gantungamacrame1_biru.jpg",
-      "images/gantungan_macrame/gantungamacrame1_ungu.jpg",
-      "images/gantungan_macrame/gantungamacrame1_ungu2.jpg",
-      "images/gantungan_macrame/gantungamacrame1_biru2.jpg",
-    ], 
-    kategori: "macrame",
-    tag: "best-seller" 
-  },
-{ 
-    nama: "Gantungan Tas Macrame ", 
-    harga: "Rp 5.000", 
-    fotoUtama: "images/gantungan_macrame/pelangi_macrame1.jpg", 
-    varian: [
-      "images/gantungan_macrame/pelangi_macrame1.jpg",
-      "images/gantungan_macrame/pelangi_macrame2.jpg",
-      "images/gantungan_macrame/pelangi_macrame3.jpg",
-    ], 
-    kategori: "macrame",
-    tag: "best-seller" 
-  },
-{ 
-    nama: "Gantungan Tas Macrame", 
-    harga: "Rp 18.000", 
-    fotoUtama: "images/gantungan_macrame/rumbai_macrame1.jpg", 
-    varian: [
-      "images/gantungan_macrame/rumbai_macrame1.jpg",
-      "images/gantungan_macrame/rumbai_macrame2.jpg",
-      "images/gantungan_macrame/rumbai_macrame3.jpg",
-
-    ], 
-    kategori: "macrame",
-    tag: "best-seller" 
-  },
-];
-
-
-function gantiFoto(el) {
-  const mainImage = el.closest('.produk-card').querySelector('.main-image');
-  mainImage.src = el.src;
-
-  // kasih highlight di varian yang dipilih
-  el.closest('.color-options').querySelectorAll('img').forEach(img => {
-    img.classList.remove('active');
-  });
-  el.classList.add('active');
-}
- //supaya semua tag muncul
- function createTagLabels(tags) {
-  return tags.map(t => `<span class="tag ${t}">${t}</span>`).join(" ");
-}
-
-function createCards(data) {
-  return data.map(p => `
-    <div class="produk-card">
-      <img src="${p.fotoUtama}" alt="${p.nama}" class="main-image">
-      <h3>${p.nama}</h3>
-      <p>${p.harga}</p>
-      <div class="tags">
-        ${createTagLabels(p.tag)}
-      </div>
-      <button onclick="beliProdukLangsung(this)">Beli Sekarang</button>
-
-    </div>
-  `).join("");
-}
-
-
-
-
-// Fungsi Buat Kartu Produk
-function createCards(arr) {
-  return arr.map(item => `
-    <div class="produk-card" data-aos="fade-up">
-      <img class="main-image" 
-           src="${item.varian && item.varian.length > 0 ? item.varian[0] : item.foto}" 
-           alt="${item.nama}">
-      
-      ${item.varian ? `
-        <div class="color-options">
-          ${item.varian.map((v, i) => `
-            <img src="${v}" onclick="gantiFoto(this)" ${i === 0 ? 'class="active"' : ''}>
-          `).join('')}
+  function createCards(arr) {
+    return arr.map(item => {
+      const mainSrc = (item.varian && item.varian.length) ? item.varian[0] : (item.fotoUtama || '');
+      const descAttr = item.deskripsi ? `data-desc="${escapeHtml(item.deskripsi)}"` : '';
+      const tagHtml = createTagLabels(item.tag || '');
+      // NOTE: gunakan item.id untuk link detail -> ini perbaikan utama
+      return `
+        <div class="produk-card" data-index="${item.__idx}" data-id="${escapeHtml(item.id)}" data-nama="${escapeHtml(item.nama)}" ${descAttr}>
+          <a class="card-link" href="produk-detail.html?id=${encodeURIComponent(item.id)}" style="text-decoration:none;color:inherit;display:block;">
+            <img class="main-image" src="${escapeHtml(mainSrc)}" alt="${escapeHtml(item.nama)}" ${imageOnErrorAttr()}>
+            ${item.varian && item.varian.length ? `
+              <div class="color-options">
+                ${item.varian.map((v, i) => `<img src="${escapeHtml(v)}" onclick="gantiFoto(this)" ${i===0? 'class="active"':''} ${imageOnErrorAttr()} alt="varian">`).join('')}
+              </div>
+            ` : ''}
+            <div class="card-body">
+              <h3>${escapeHtml(item.nama)}</h3>
+              <p class="harga">${escapeHtml(typeof item.harga === 'number' ? ('Rp ' + item.harga.toLocaleString('id-ID')) : item.harga)}</p>
+              <div class="tags">${tagHtml}</div>
+            </div>
+          </a>
+          <div style="text-align:center;margin-top:10px;">
+            <button class="btn-beli">Beli Sekarang</button>
+          </div>
         </div>
-      ` : ''}
+      `;
+    }).join('');
+  }
 
-      <h3>${item.nama}</h3>
-      <p class="harga">${item.harga}</p>
-      <button onclick="beliProdukLangsung(this)">Beli Sekarang</button>
+  // ========================
+  // Renderers
+  // ========================
+  function renderBestSeller() {
+    const bestSeller = produk.filter(p => String(p.tag || '').trim() === "best-seller");
+    const el = document.getElementById('best-seller');
+    if (el) el.innerHTML = createCards(bestSeller);
+  }
 
-    </div>
-  `).join('');
-}
+  function renderProdukBaru() {
+    const produkBaru = produk.filter(p => String(p.tag || '').trim() === "produk-baru");
+    const el = document.getElementById('produk-baru');
+    if (el) el.innerHTML = createCards(produkBaru);
+  }
 
+  function renderProduk(kategori = "all") {
+    const filtered = kategori === "all" ? produk : produk.filter(p => p.kategori === kategori);
+    const container = document.getElementById('produk-container');
+    if (!container) return;
+    container.classList.add('fade-out');
+    setTimeout(() => {
+      container.innerHTML = createCards(filtered);
+      container.classList.remove('fade-out');
+      if (window.AOS && typeof window.AOS.refresh === 'function') window.AOS.refresh();
+    }, 150);
+  }
 
-
-
-// Render Best Seller
-function renderBestSeller() {
-  const bestSeller = produk.filter(p => p.tag === "best-seller");
-  document.getElementById('best-seller').innerHTML = createCards(bestSeller);
-}
-
-// Render Produk Baru
-function renderProdukBaru() {
-  const produkBaru = produk.filter(p => p.tag === "produk-baru");
-  document.getElementById('produk-baru').innerHTML = createCards(produkBaru);
-}
-
-// Render Semua / Filter Kategori
-function renderProduk(kategori = "all") {
-  const filtered = kategori === "all" ? produk : produk.filter(p => p.kategori === kategori);
-  const container = document.getElementById('produk-container');
-  container.classList.add('fade-out');
-  setTimeout(() => {
-    container.innerHTML = createCards(filtered);
-    container.classList.remove('fade-out');
-    AOS.refresh(); // refresh AOS after DOM change
-  }, 300);
-}
-
-// setelah renderBestSeller dan renderProdukBaru
-function setupSliderControls(wrapperSelector) {
-  const wrapper = document.querySelector(wrapperSelector);
-  if (!wrapper) return;
-
-  const container = wrapper.querySelector('.slider-container');
-  const btnPrev = wrapper.querySelector('.slider-btn.prev');
-  const btnNext = wrapper.querySelector('.slider-btn.next');
-
-  const scrollAmount = 300; // bisa kamu ubah sesuai lebar card
-
-  btnPrev.addEventListener('click', () => {
-    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-  });
-  btnNext.addEventListener('click', () => {
-    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  });
-}
-
-// Panggil setelah produk dirender
-renderBestSeller();
-renderProdukBaru();
-renderProduk(); // katakan produknya
-
-// Setup tombol slider
-setupSliderControls('section#katalog .slider-wrapper:nth-of-type(1)'); // untuk best seller
-setupSliderControls('section#katalog .slider-wrapper:nth-of-type(2)'); // untuk produk baru
-
-
-// Hamburger menu toggle
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
-
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-  hamburger.textContent = navLinks.classList.contains('active') ? "✖" : "☰";
-});
-
-document.querySelectorAll('#nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('active');
-    hamburger.textContent = "☰";
-  });
-});
-
-
-
-// Event Listener Kategori
-document.querySelectorAll('#kategori-buttons button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    renderProduk(btn.getAttribute('data-kategori'));
-  });
-});
-
-// Smooth scroll untuk navbar
-document.querySelectorAll('.navbar nav a').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    document.querySelector(link.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
+  // ========================
+  // Slider controls
+  // ========================
+  function setupSliderControls() {
+    document.querySelectorAll('.slider-wrapper').forEach(wrapper => {
+      const cont = wrapper.querySelector('.slider-container');
+      const btnPrev = wrapper.querySelector('.slider-btn.prev');
+      const btnNext = wrapper.querySelector('.slider-btn.next');
+      if (!cont || !btnPrev || !btnNext) return;
+      const scrollAmount = Math.max(260, Math.floor(cont.clientWidth * 0.6));
+      btnPrev.onclick = () => cont.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      btnNext.onclick = () => cont.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     });
+  }
+
+  // ========================
+  // Global functions for inline handlers
+  // ========================
+  window.gantiFoto = function(el) {
+    try {
+      const card = el.closest('.produk-card');
+      const main = card?.querySelector('.main-image');
+      if (main && el && el.src) main.src = el.src;
+      card?.querySelectorAll('.color-options img')?.forEach(img => img.classList.remove('active'));
+      el.classList.add('active');
+    } catch (err) { console.error(err); }
+  };
+
+  window.gantiFotoDetail = function(el) {
+    try {
+      const detailImg = document.getElementById('detail-image');
+      if (detailImg && el && el.src) detailImg.src = el.src;
+      document.querySelectorAll('#detail-variants img').forEach(img => img.classList.remove('active'));
+      el.classList.add('active');
+    } catch (err) { console.error('Gagal ganti foto detail:', err); }
+  };
+
+  function beliProdukLangsungByCard(card) {
+    if (!card) return;
+    const nama = card.querySelector('h3')?.innerText?.trim() || '';
+    const harga = card.querySelector('.harga')?.innerText?.trim() || '';
+    const varianAktif = card.querySelector('.color-options img.active');
+    const varian = varianAktif ? varianAktif.src.split('/').pop() : '';
+    const pesan = encodeURIComponent(`Halo kak, saya tertarik dengan:\n\n📌 ${nama}${varian ? ' (' + varian + ')' : ''}\n💰 Harga: ${harga}\n\nApakah stok ini masih tersedia?`);
+    const nomorWA = "6289697710601";
+    const waUrl = `https://wa.me/${nomorWA}?text=${pesan}`;
+    window.open(waUrl, '_blank');
+  }
+
+  window.beliProdukLangsung = function(el) {
+    const card = el.closest('.produk-card');
+    beliProdukLangsungByCard(card);
+  };
+
+  // ========================
+  // Product detail panel (fallback modal)
+  // ========================
+  function formatPriceText(text) { return text || ''; }
+
+  function openProductDetailFromCard(cardElem) {
+    if (!cardElem) return;
+    const nameEl = cardElem.querySelector('h3');
+    const produkNama = nameEl?.innerText?.trim() || '';
+    const produkData = produk.find(p => p.nama === produkNama) || null;
+
+    const imgSrc = produkData?.fotoUtama || cardElem.querySelector('.main-image')?.src || '';
+    const hargaText = produkData?.harga || cardElem.querySelector('.harga')?.innerText || '';
+    const descFromAttr = cardElem.getAttribute('data-desc');
+    const descText = produkData?.deskripsi || descFromAttr || 'Deskripsi belum tersedia.';
+
+    const panel = document.getElementById('product-detail');
+    if (!panel) return;
+
+    const imgEl = document.getElementById('detail-image');
+    const namePanel = document.getElementById('detail-name');
+    const pricePanel = document.getElementById('detail-price');
+    const descPanel = document.getElementById('detail-desc');
+    const storeEl = document.getElementById('detail-store');
+    const buyBtn = document.getElementById('detail-buy');
+    const variantsEl = document.getElementById('detail-variants');
+
+    if (imgEl) {
+      imgEl.src = imgSrc || 'https://via.placeholder.com/420x420?text=No+Image';
+      imgEl.alt = produkNama;
+      imgEl.onerror = function(){ this.onerror = null; this.src = 'https://via.placeholder.com/420x420?text=No+Image'; };
+    }
+    if (namePanel) namePanel.innerText = produkData?.nama || produkNama;
+    if (pricePanel) pricePanel.innerText = formatPriceText(hargaText);
+    if (descPanel) descPanel.innerText = descText;
+
+    if (variantsEl && produkData && produkData.varian && produkData.varian.length > 0) {
+      variantsEl.innerHTML = produkData.varian.map((v, i) => 
+        `<img src="${escapeHtml(v)}" onclick="gantiFotoDetail(this)" ${i===0? 'class="active"':''} ${imageOnErrorAttr()} alt="varian">`
+      ).join('');
+    } else if (variantsEl) {
+      variantsEl.innerHTML = '';
+    }
+
+    if (storeEl) {
+      storeEl.innerHTML = `
+        <div class="store-avatar">
+          <i class="fas fa-store"></i>
+        </div>
+        <div class="store-info">
+          <div class="store-name">Qila Solo Store</div>
+          <div class="store-location">Solo, Jawa Tengah</div>
+        </div>
+      `;
+    }
+
+    if (buyBtn) {
+      const namaEnc = encodeURIComponent(produkData?.nama || produkNama);
+      buyBtn.href = `https://wa.me/6289697710601?text=Halo%20kak,%20saya%20tertarik%20dengan%20${namaEnc}`;
+    }
+
+    panel.classList.add('active');
+    if (window.innerWidth < 900) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ========================
+  // Close detail
+  // ========================
+  function setupCloseDetail() {
+    const closeBtn = document.getElementById('close-detail');
+    if (!closeBtn) return;
+    closeBtn.addEventListener('click', () => {
+      const panel = document.getElementById('product-detail');
+      if (panel) panel.classList.remove('active');
+      if (window.innerWidth < 900) {
+        const produkTop = document.getElementById('produk-container');
+        if (produkTop) produkTop.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+
+  // ========================
+  // Event delegation: klik pada container
+  // ========================
+  function setupProdukContainerClick() {
+    const container = document.getElementById('produk-container');
+    if (!container) return;
+
+    container.addEventListener('click', (e) => {
+      // tombol beli
+      if (e.target.closest('.btn-beli') || e.target.classList.contains('btn-beli')) {
+        const card = e.target.closest('.produk-card');
+        if (card) beliProdukLangsungByCard(card);
+        return;
+      }
+
+      // klik varian image -> do nothing (inline handler gantiFoto menangani)
+      if (e.target.closest('.color-options img')) return;
+
+      // klik kartu -> gunakan data-id atau link .card-link href
+      const card = e.target.closest('.produk-card');
+      if (!card) return;
+
+      // prioritas: data-id (set di createCards), lalu cek .card-link href, lalu fallback cari index by nama
+      let idParam = card.getAttribute('data-id') ?? null;
+      if (!idParam) {
+        const linkEl = card.querySelector('.card-link');
+        if (linkEl) {
+          // parse id param dari href, safer than using index
+          try {
+            const href = linkEl.getAttribute('href') || '';
+            const sp = new URL(href, location.origin);
+            idParam = sp.searchParams.get('id');
+          } catch (err) {
+            idParam = null;
+          }
+        }
+      }
+
+      if (idParam) {
+        // langsung pindah ke halaman detail dengan id asli
+        window.location.href = `produk-detail.html?id=${encodeURIComponent(idParam)}`;
+        return;
+      }
+
+      // fallback lama: cari index berdasarkan nama
+      let idx = card.getAttribute('data-index');
+      if (idx === null || idx === '' || Number.isNaN(Number(idx))) {
+        const nama = card.querySelector('h3')?.innerText?.trim() || '';
+        idx = produk.findIndex(p => p.nama === nama);
+      } else {
+        idx = Number(idx);
+      }
+
+      if (typeof idx === 'number' && idx >= 0 && idx < produk.length) {
+        // Jika sampai sini, tetap redirect menggunakan id asli produk berdasarkan index
+        const actualId = produk[idx]?.id ?? idx;
+        window.location.href = `produk-detail.html?id=${encodeURIComponent(actualId)}`;
+      } else {
+        // terakhir: buka panel detail fallback
+        openProductDetailFromCard(card);
+      }
+    });
+  }
+
+  // ========================
+  // UI: hamburger, kategori, smooth scroll
+  // ========================
+  function setupHamburger() {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    if (!hamburger || !navLinks) return;
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+    navLinks.querySelectorAll && navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+    });
+  }
+
+  function setupKategoriButtons() {
+    document.querySelectorAll('#kategori-buttons button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const k = btn.getAttribute('data-kategori') || 'all';
+        renderProduk(k);
+        document.querySelectorAll('#kategori-buttons button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  }
+
+  function setupSmoothScroll() {
+    document.querySelectorAll('.navbar nav a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  }
+
+  // ========================
+  // Inisialisasi
+  // ========================
+  renderBestSeller();
+  renderProdukBaru();
+  renderProduk(); // default: semua
+  setupSliderControls();
+  setupProdukContainerClick();
+  setupCloseDetail();
+  setupKategoriButtons();
+  setupHamburger();
+  setupSmoothScroll();
+
+  // resize debounce untuk slider
+  let _resizeTimer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(_resizeTimer);
+    _resizeTimer = setTimeout(() => {
+      setupSliderControls();
+    }, 150);
   });
-});
 
-// Load awal
-renderBestSeller();
-renderProdukBaru();
-renderProduk();
-
-
-//section beli sekarang
-function beliProdukLangsung(el) {
-  const card = el.closest('.produk-card');
-  const nama = card.querySelector('h3').innerText;
-  const harga = card.querySelector('.harga').innerText;
-  const varianAktif = card.querySelector('.color-options img.active');
-  const varian = varianAktif ? varianAktif.src.split('/').pop() : ''; // ambil nama file varian
-
-  const pesan = encodeURIComponent(
-    `Halo kak, saya tertarik dengan:\n\n📌 ${nama}${varian ? ' (' + varian + ')' : ''}\n💰 Harga: ${harga}\n\nApakah stok ini masih tersedia?`
-  );
-
-  const nomorWA = "6289697710601"; // ganti sesuai admin
-  const waUrl = `https://wa.me/${nomorWA}?text=${pesan}`;
-  window.open(waUrl, '_blank');
-}
-
+}); // DOMContentLoaded end

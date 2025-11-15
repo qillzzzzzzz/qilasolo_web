@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Detail Produk — Qila Solo</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- AOS CSS (opsional) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --pink:#ff7aa2;
+      --muted:#f6f6f8;
+      --text:#111;
+      --accent:#e91e63;
+      --green-wa:#25D366;
+      --card-shadow: 0 8px 28px rgba(15,15,15,0.06);
+      font-size: 16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family: 'Poppins', sans-serif;
+      margin:0;
+      background:#fff;
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:18px;
+    }
+
+    /* Header */
+    header{
+      margin-bottom:14px;
+    }
+    .back-link{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      color:var(--pink);
+      text-decoration:none;
+      font-weight:600;
+    }
+    .back-link i { transform: translateX(-2px); }
+
+    /* Container */
+    .container{
+      max-width:900px;
+      margin:0 auto;
+      background:linear-gradient(180deg,#fff,#fff);
+      border-radius:14px;
+      padding:18px;
+      box-shadow:var(--card-shadow);
+    }
+
+    /* Grid */
+    .detail-wrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:20px;
+      align-items:start;
+    }
+
+    /* Image area */
+    .detail-image-wrap{
+      background:var(--muted);
+      border-radius:12px;
+      padding:12px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.04);
+    }
+    .detail-image-wrap img{
+      width:100%;
+      height: auto;
+      display:block;
+      border-radius:10px;
+      object-fit:cover;
+      max-height:520px;
+    }
+    .detail-variants{
+      margin-top:12px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .detail-variants img{
+      width:60px;
+      height:60px;
+      border-radius:8px;
+      object-fit:cover;
+      cursor:pointer;
+      border:2px solid transparent;
+      box-shadow:0 4px 12px rgba(0,0,0,0.03);
+    }
+    .detail-variants img.active{ border-color:var(--pink); transform:scale(1.03); }
+
+    /* Meta */
+    .detail-meta h1{
+      margin:0 0 8px;
+      font-size:20px;
+      font-weight:700;
+    }
+    .detail-price{
+      font-weight:800;
+      margin-bottom:10px;
+      color:var(--accent);
+      font-size:18px;
+    }
+    .detail-desc{
+      color:#333;
+      line-height:1.5;
+      margin-bottom:14px;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-top:6px;
+      flex-wrap:wrap;
+    }
+    .btn-buy{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:12px 16px;
+      background:var(--green-wa);
+      color:#fff;
+      text-decoration:none;
+      border-radius:10px;
+      font-weight:700;
+      box-shadow:0 8px 20px rgba(37,211,102,0.18);
+    }
+    .btn-outline{
+      background:transparent;
+      border:2px solid var(--pink);
+      color:var(--pink);
+      padding:10px 14px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    /* small helper */
+    .muted-note{ color:#666; font-size:13px; margin-top:8px; }
+
+    /* Responsive */
+    @media (max-width:800px){
+      .detail-wrap{ grid-template-columns: 1fr; }
+      body{ padding:12px; }
+      .detail-image-wrap img{ max-height:420px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="back-link" href="index.html">
+      <i class="fa fa-arrow-left"></i>
+      <span> Kembali ke katalog — Qila Solo</span>
+    </a>
+  </header>
+
+  <main>
+    <div class="container" data-aos="fade-up">
+      <section class="detail-wrap">
+
+        <!-- gambar & varian -->
+        <div class="detail-image-wrap">
+          <img id="detail-image" src="https://via.placeholder.com/600x600?text=Memuat..." alt="Gambar produk utama">
+          <div id="detail-variants" class="detail-variants" aria-hidden="false"></div>
+        </div>
+
+        <!-- meta -->
+        <div class="detail-meta">
+          <h1 id="detail-name">Memuat...</h1>
+          <div id="detail-price" class="detail-price"></div>
+          <div id="detail-desc" class="detail-desc"></div>
+
+          <div class="actions">
+            <a id="detail-buy" class="btn-buy" href="#" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp"></i>
+              <span>Beli / Cek di toko</span>
+            </a>
+
+            <a id="detail-share" class="btn-outline" href="#" onclick="navigator.share && event.preventDefault(); navigator.share({title: document.title, text: document.getElementById('detail-name').innerText, url: location.href});">
+              <i class="fa fa-share"></i> Bagikan
+            </a>
+          </div>
+
+          <div id="detail-note" class="muted-note"></div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- AOS JS (opsional) -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script> if (window.AOS) AOS.init({ duration: 700 }); </script>
+
+  <!-- Module script: produk-detail.js (yang meng-import data-produk.js) -->
+  <script type="module" src="produk-detail.js"></script>
+</body>
+</html>

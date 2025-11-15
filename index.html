@@ -5,8 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Qila Solo</title>
 
+  <link rel="icon" type="image/png" sizes="32x32" href="images/logo-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/logo-16.png" />
+  <link rel="apple-touch-icon" href="images/logo-apple.png" />  
+
+
+
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -17,17 +26,28 @@
 <body>
   <!-- Navbar -->
   <header class="navbar">
-    <div class="container">
-      <h1 class="logo">Qila Solo</h1>
-      <nav id="nav-links">
-        <a href="#home">Beranda</a>
-        <a href="#katalog">Katalog</a>
-        <a href="#testimoni">Testimoni</a>
-        <a href="#kontak">Kontak</a>
-      </nav>
-      <div class="hamburger" id="hamburger">☰</div>
+  <div class="nav-inner">
+    <!-- kiri -->
+    <h1 class="logo">Qila Solo</h1>
+
+    <!-- tengah kosong -->
+    <div class="nav-space"></div>
+
+    <!-- kanan -->
+    <nav id="nav-links">
+      <a href="#home">Beranda</a>
+      <a href="#katalog">Katalog</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <!-- Banner Hero -->
   <section class="hero-video">
@@ -39,74 +59,148 @@
 
   <!-- Katalog -->
   <section id="katalog" class="katalog">
-    <h2 data-aos="fade-up">Best Seller</h2>
-    <div class="slider-wrapper" data-aos="fade-up">
-      <button class="slider-btn prev" aria-label="Prev">&lt;</button>
-      <div id="best-seller" class="slider-container"></div>
-      <button class="slider-btn next" aria-label="Next">&gt;</button>
-    </div>
+    <div class="container">
+      <h2 data-aos="fade-up">Best Seller</h2>
+      <div class="slider-wrapper" data-aos="fade-up">
+        <button class="slider-btn prev" aria-label="Prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div id="best-seller" class="slider-container"></div>
+        <button class="slider-btn next" aria-label="Next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
 
-    <h2 data-aos="fade-up">Produk Baru</h2>
-    <div class="slider-wrapper" data-aos="fade-up">
-      <button class="slider-btn prev" aria-label="Prev">&lt;</button>
-      <div id="produk-baru" class="slider-container"></div>
-      <button class="slider-btn next" aria-label="Next">&gt;</button>
-    </div>
+      <h2 data-aos="fade-up">Produk Baru</h2>
+      <div class="slider-wrapper" data-aos="fade-up">
+        <button class="slider-btn prev" aria-label="Prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div id="produk-baru" class="slider-container"></div>
+        <button class="slider-btn next" aria-label="Next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
 
-    <h2 data-aos="fade-up">Kategori</h2>
-    <div id="kategori-buttons" class="kategori-buttons" data-aos="fade-up">
-      <button data-kategori="all">Semua</button>
-      <button data-kategori="gelang">Gelang</button>
-      <button data-kategori="gelang anak">Gelang Anak</button>
-      <button data-kategori="gantungan">Gantungan</button>
-      <button data-kategori="macrame">Macrame</button>
-      <button data-kategori="kuciran">Kuciran</button>
-    </div>
+      <h2 data-aos="fade-up">Kategori</h2>
+      <div id="kategori-buttons" class="kategori-buttons" data-aos="fade-up">
+        <button data-kategori="all" class="active">
+          <i class="fas fa-th"></i> Semua
+        </button>
+        <button data-kategori="gelang">
+          <i class="fas fa-circle"></i> Gelang
+        </button>
+        <button data-kategori="gelang anak">
+          <i class="fas fa-child"></i> Gelang Anak
+        </button>
+        <button data-kategori="gantungan">
+          <i class="fas fa-key"></i> Gantungan
+        </button>
+        <button data-kategori="macrame">
+          <i class="fas fa-link"></i> Macrame
+        </button>
+      </div>
 
-    <div id="produk-container" class="produk-grid" data-aos="fade-up"></div>
+      <div id="produk-container" class="produk-grid"></div>
+
+      <!-- Product Detail Panel -->
+      <div id="product-detail" class="product-detail">
+        <button id="close-detail" class="close-detail" aria-label="Tutup detail">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="detail-image-wrap">
+          <img id="detail-image" src="" alt="">
+          <div id="detail-variants" class="detail-variants"></div>
+        </div>
+        <div class="detail-meta">
+          <h3 id="detail-name"></h3>
+          <div class="detail-price" id="detail-price"></div>
+          <div class="detail-desc" id="detail-desc"></div>
+          <div class="detail-store" id="detail-store">
+            <div class="store-avatar">
+              <i class="fas fa-store"></i>
+            </div>
+            <div class="store-info">
+              <div class="store-name">Qila Solo Store</div>
+              <div class="store-location">Solo, Jawa Tengah</div>
+            </div>
+          </div>
+          <div style="margin-top:12px">
+            <a id="detail-buy" class="btn-check" href="#" target="_blank">
+              <i class="fab fa-whatsapp"></i> Beli / Cek di toko
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Testimoni -->
   <section id="testimoni" class="testimoni" data-aos="fade-up">
-    <h2>Testimoni Pelanggan</h2>
-    <div class="testimoni-grid">
-      <div class="testimoni-card">
-        <p>"LUUCUUUUUU BANGETTT, kalap kesekian kalinya"</p>
-        <div class="rating">⭐⭐⭐⭐⭐</div>
-        <span>- Niyaz</span>
-      </div>
-      <div class="testimoni-card">
-        <p>"Cantik banget gelangnya!"</p>
-        <div class="rating">⭐⭐⭐⭐</div>
-        <span>- Putri</span>
-      </div>
-      <div class="testimoni-card">
-        <p>"MURAHHH, BAGUSSS, CANTIKK"</p>
-        <div class="rating">⭐⭐⭐⭐⭐</div>
-        <span>- Calissa</span>
+    <div class="container">
+      <h2>Testimoni Pelanggan</h2>
+      <div class="testimoni-grid">
+        <div class="testimoni-card">
+          <div class="testimoni-content">
+            <p>"LUUCUUUUUU BANGETTT, kalap kesekian kalinya"</p>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <span>- Niyaz</span>
+          </div>
+        </div>
+        <div class="testimoni-card">
+          <div class="testimoni-content">
+            <p>"Cantik banget gelangnya!"</p>
+            <div class="rating">⭐⭐⭐⭐</div>
+            <span>- Putri</span>
+          </div>
+        </div>
+        <div class="testimoni-card">
+          <div class="testimoni-content">
+            <p>"MURAHHH, BAGUSSS, CANTIKK"</p>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <span>- Calissa</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Kontak -->
- <section id="kontak" class="kontak" data-aos="fade-up">
-  <h2>Hubungi Kami</h2>
-  <p>TikTok : <a href="https://www.tiktok.com/@qilasolo_acc" target="_blank">@qilasolo_acc</a></p>
-  <p>Instagram: <a href="https://www.instagram.com/qilasolo" target="_blank">@qilasolo</a></p>
-  <p>WhatsApp: <a href="https://wa.me/6289697710601" target="_blank">Chat Kami</a></p>
-</section>
-
+  <section id="kontak" class="kontak" data-aos="fade-up">
+    <div class="container">
+      <h2>Hubungi Kami</h2>
+      <div class="kontak-grid">
+        <a href="https://www.tiktok.com/@qilasolo_acc" target="_blank" class="kontak-item">
+          <i class="fab fa-tiktok"></i>
+          <span>@qilasolo_acc</span>
+        </a>
+        <a href="https://www.instagram.com/qilasolo" target="_blank" class="kontak-item">
+          <i class="fab fa-instagram"></i>
+          <span>@qilasolo</span>
+        </a>
+        <a href="https://wa.me/6289697710601" target="_blank" class="kontak-item">
+          <i class="fab fa-whatsapp"></i>
+          <span>Chat Kami</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
-    &copy; 2025 Qila Solo. Dibuat dengan cinta 💗
+    <div class="container">
+      &copy; 2025 Qila Solo. Dibuat dengan cinta 💗
+    </div>
   </footer>
-
-  <!-- AOS JS -->
+  <!-- AOS JS tetap seperti semula -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000 });
   </script>
-  <script src="script.js"></script>
-</body>
-</html>
+
+  <!-- cukup satu module script: script.js yang melakukan `import { produkList } from './data-produk.js'` -->
+  <script type="module" src="script.js"></script>
+  </body>
+  </html>
+
+  
